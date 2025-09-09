@@ -1,5 +1,5 @@
 <template>
-    <div class="comparison-section">
+    <!-- <div class="comparison-section">
       <h3>Industry Comparison</h3>
       <div class="comparison-chart">
         <div class="comparison-companies">
@@ -20,7 +20,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
   </template>
   
   <script>

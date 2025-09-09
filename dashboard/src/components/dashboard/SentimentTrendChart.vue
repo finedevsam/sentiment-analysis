@@ -53,7 +53,7 @@
     },
     data() {
       return {
-        dates: ['Apr 1', 'Apr 2', 'Apr 3', 'Apr 4', 'Apr 5', 'Apr 6', 'Apr 7']
+        dates: ['Jul 1', 'Jul 2', 'Jul 3', 'Jul 4', 'Jul 5', 'Jul 6', 'Jul 7']
       };
     }
   }

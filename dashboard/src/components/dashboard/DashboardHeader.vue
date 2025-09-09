@@ -20,26 +20,16 @@
         <div class="time-selector">
           <label for="timeframe">Timeframe:</label>
           <div class="select-wrapper">
-            <select id="timeframe" :value="selectedTimeframe" @change="$emit('update:selectedTimeframe', $event.target.value)">
-              <option value="day">24 Hours</option>
-              <option value="week">7 Days</option>
-              <option value="month">30 Days</option>
-              <option value="quarter">90 Days</option>
-            </select>
+            <input id="timeframe" type="date"/>
+          </div>
+          to
+          <div class="select-wrapper">
+            <input id="timeframe" type="date"/>
           </div>
         </div>
         <button class="refresh-btn" @click="$emit('refresh')">
           <span class="refresh-icon">↻</span> Refresh
         </button>
-      </div>
-      <div class="user-menu">
-        <div class="notifications">
-          <span class="notification-icon">🔔</span>
-          <span class="notification-badge">3</span>
-        </div>
-        <div class="user-avatar">
-          <img src="https://via.placeholder.com/32" alt="User avatar" />
-        </div>
       </div>
     </header>
   </template>

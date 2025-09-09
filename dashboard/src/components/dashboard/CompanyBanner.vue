@@ -1,9 +1,6 @@
 <template>
     <div class="company-banner">
       <div class="company-info">
-        <div class="company-logo">
-          <img :src="companyLogo" :alt="companyName + ' logo'" />
-        </div>
         <div class="company-details">
           <h2>{{ companyName }}</h2>
           <div class="company-ticker">${{ companyId }}</div>

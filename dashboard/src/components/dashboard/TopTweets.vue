@@ -5,10 +5,10 @@
           <div class="tweet-sentiment-indicator" :style="{ backgroundColor: getSentimentColor(tweet.sentiment) }"></div>
           <div class="tweet-content">
             <div class="tweet-header">
-              <div class="tweet-author">
+              <!-- <div class="tweet-author">
                 <img :src="tweet.avatar || 'https://via.placeholder.com/24'" class="tweet-avatar" alt="User avatar" />
                 @{{ tweet.author }}
-              </div>
+              </div> -->
               <div class="tweet-time">{{ tweet.time }}</div>
             </div>
             <div class="tweet-text">{{ tweet.text }}</div>

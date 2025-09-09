@@ -1,5 +1,6 @@
 from flask import Blueprint, request, jsonify
 from services.predict_service import predict_stock
+from services.randomforest import predict_stock as predict_data
 
 predict_bp = Blueprint("predict", __name__)
 
