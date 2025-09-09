@@ -82,24 +82,45 @@ networks:
 
 ### Backend Dockerfile (`backend.Dockerfile`)
 ```dockerfile
+# Use official Python base image
 FROM python:3.11-slim
+
+# Set working directory
 WORKDIR /app
-COPY backend/requirements.txt .
-RUN pip install -r requirements.txt
-COPY backend/ .
+
+# Copy backend source
+COPY ./backend /app
+
+# Install dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Expose Flask port
 EXPOSE 5000
+
+# Run the app
 CMD ["python", "app.py"]
 ```
 
 ### Frontend Dockerfile (`frontend.Dockerfile`)
 ```dockerfile
-FROM node:18-alpine
+# Build Stage
+FROM node:20-alpine as build-stage
+
 WORKDIR /app
-COPY dashboard/package*.json ./
-RUN yarn install
-COPY dashboard/ .
-EXPOSE 8080
-CMD ["yarn", "serve"]
+
+COPY ./dashboard /app
+
+RUN npm install && npm run build
+
+# Production Stage
+FROM nginx:stable-alpine as production-stage
+
+COPY --from=build-stage /app/dist /usr/share/nginx/html
+
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;", "yarn", "serve"]
 ```
 
 ## Development
