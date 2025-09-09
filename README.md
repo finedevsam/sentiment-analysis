@@ -74,6 +74,16 @@ services:
       - app-network
     depends_on:
       - backend
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.17.10
+    container_name: elasticsearch
+    environment:
+      - discovery.type=single-node
+      - ES_JAVA_OPTS=-Xms512m -Xmx512m
+    ports:
+      - "9200:9200"
+    networks:
+      - app-network
 
 networks:
   app-network:
@@ -126,8 +136,10 @@ CMD ["nginx", "-g", "daemon off;", "yarn", "serve"]
 ## Development
 - Flask backend runs in debug mode if enabled in `app.py`  
 - Vue.js frontend uses hot reload with mounted volume  
+- Elasticsearch runs in single-node mode for development  
 
 ## Stopping services
 ```
 docker-compose down
+```
 ```
